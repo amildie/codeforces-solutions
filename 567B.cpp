@@ -21,8 +21,7 @@
 #endif
 using namespace std;
 
-
-int main(){
+int main() {
     
     #ifdef TEST
         freopen("test.in", "r", stdin);
@@ -45,31 +44,24 @@ int main(){
         int p; cin >> p;
         participated.insert(p);
 
-        if(c == '+') {
-            
+        if(c == '+') {            
             exists.insert(p);
-
             for(int j = i; j < n; ++j) {
                 m[p][j] = true;
             }
-
         } else {
             if(exists.find(p) != exists.end()) {
-                
                 exists.erase(p);
-                
                 for(int j = i+1; j < n; ++j) {
                     m[p][j] = false;
                 }
-                
             } else {
-                
                 for(int j = 0; j <= i; ++j) {
                     m[p][j] = true;
                 }
-
             }
         }
+
     }
 
     for(auto &elem : participated) {
